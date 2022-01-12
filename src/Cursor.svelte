@@ -54,7 +54,7 @@ top:0;
 		transition: width 150ms ease-in, height 150ms ease-in, border 150ms ease-in;
 	}
 	.snap{
-		transition: transform 150ms ease-in;
+		transition:  width 150ms ease-in, height 150ms ease-in, border 150ms ease-in, transform 150ms ease-in;
 		width:60px;
 		height:60px;
 		border: #EEFF00 solid thin;
