@@ -1,25 +1,34 @@
 <script>
 	let targetCoord;
 		import { getContext } from 'svelte';
-
+ let down;
 	const answer = getContext('answer');
 </script>
-<div class="target" 
+<div class="target" class:down
 		 on:mouseenter={()=>{
 	$answer = {y:targetCoord.getBoundingClientRect().top,
 						x:targetCoord.getBoundingClientRect().left}
 	}}
 	on:mouseleave={()=>{
 	$answer = null;
+	down=false;
 	}}
-	
+	on:mousedown={()=>{
+		down=true;
+	}}
+	on:mouseup={()=>{
+		down=false;
+	}}
 	>
-	<div class="ploss">
+	<div class="ploss" >
+		<div class:down>
+			
 		<div class="ploss-bar">
 		</div>
 		<div class="ploss-bar updown">
 		</div>
 		<div id="center-ref" bind:this={targetCoord}/>
+		</div>
 	</div>
 </div>
 
@@ -48,7 +57,11 @@
 		position:absolute;
 		left:50%;
 		top:50%;
-		transform:translate(-50%,-2px);
+		transform:translate(-50%,0px);
+	}
+	.down{
+				transform:translate(1px,1px);
+
 	}
 
 	.ploss-bar{

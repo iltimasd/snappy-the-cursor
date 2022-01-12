@@ -19,7 +19,7 @@
 
 <style>
 	:root{
-		cursor:none;
+		/* cursor:none; */
 		background:#1A1A1A;
 		
 	}
